@@ -1,10 +1,9 @@
 package main
 
 import (
-	"log"
+	"net/http"
 	"os"
 
-	"github.com/gin-gonic/autotls"
 	"github.com/gin-gonic/gin"
 	"golang.org/x/crypto/acme/autocert"
 )
@@ -24,8 +23,13 @@ func main() {
 		HostPolicy: autocert.HostWhitelist("kaze.live" + getPort()),
 		Cache:      autocert.DirCache("./cert"),
 	}
+	s := http.Server{
+		Addr:      "188.163.115.162" + getPort(),
+		TLSConfig: m.TLSConfig(),
+	}
+	s.ListenAndServeTLS("./cert/server.pem", "./cert/server.key")
 
-	log.Fatal(autotls.RunWithManager(router, &m))
+	//log.Fatal(autotls.RunWithManager(router, &m))
 	//router.RunTLS(getPort(), "./cert/server.pem", "./cert/server.key")
 }
 
