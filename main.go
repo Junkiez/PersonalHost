@@ -21,7 +21,7 @@ func main() {
 
 	m := autocert.Manager{
 		Prompt:     autocert.AcceptTOS,
-		HostPolicy: autocert.HostWhitelist("localhost.com"),
+		HostPolicy: autocert.HostWhitelist("kaze.live" + getPort()),
 		Cache:      autocert.DirCache("./cert"),
 	}
 
