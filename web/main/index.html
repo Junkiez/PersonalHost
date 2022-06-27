@@ -34,12 +34,14 @@
 				button{
 					background-color: #346fdc;
 					border-radius: 0.7rem;
-					position: fixed;
-					top: 90%;
 					font-family: monospace;
 					font-size: 1.5rem;
 					color: white;
-        			left: 50%;
+				}
+				span{
+					position: fixed;
+					top: 90%;
+					left: 50%;
         			transform: translate(-50%, -50%);
 				}
 				button:hover {
@@ -49,7 +51,7 @@
 					color: #00a;
 				}
 		</style>
-		<title>Kaze</title>
+		<title></title>
 		<link rel="icon" type="image/png" href="icon_favicon16x16.png" sizes="16x16">
 		<link rel="icon" type="image/png" href="icon_favicon32x32.png" sizes="32x32">
 	</head>
@@ -57,7 +59,13 @@
 		<div id='container'>
 			<canvas id="canvas3d"></canvas>
 		</div>
-		<button onclick="window.location ='https://t.me/KAZE_F'">Telegram me</button>
+		<span>
+			<button onclick="window.location ='https://t.me/KAZE_F'">Telegram</button>
+			<button onclick="window.location ='mailto:junkiezet@jmail.com'">Mail</button>
+			<button onclick="window.location ='/cv'">CV</button>
+			<button onclick="window.location ='/projects'">Projects</button>
+			<button onclick="window.location ='/blog'">Blog</button>
+		</span>
 		<script type="module">
 			import { Application } from 'https://unpkg.com/@splinetool/runtime@0.9.23/build/runtime.js';
 			const canvas = document.getElementById('canvas3d');
