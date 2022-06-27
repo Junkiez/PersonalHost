@@ -7,5 +7,5 @@ import (
 )
 
 func MainPage(ctx *gin.Context) {
-	ctx.HTML(http.StatusOK, "./web/main/index.html", gin.H{})
+	ctx.HTML(http.StatusOK, "index.html", gin.H{})
 }
