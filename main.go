@@ -1,7 +1,7 @@
 package main
 
 import (
-	"net/http"
+	"main/handlers"
 	"os"
 
 	"github.com/gin-gonic/gin"
@@ -10,13 +10,11 @@ import (
 func main() {
 	gin.SetMode(gin.ReleaseMode)
 	router := gin.Default()
-	router.LoadHTMLFiles("web/main")
+	router.LoadHTMLGlob("web/main/*html")
 
 	publicGroup := router.Group("/")
 	{
-		publicGroup.GET("/", func(ctx *gin.Context) {
-			ctx.HTML(http.StatusOK, "index.html", gin.H{"title": "KAZE"})
-		})
+		publicGroup.GET("/", handlers.MainPage)
 		publicGroup.Static("/cv", "./web/cv")
 	}
 
