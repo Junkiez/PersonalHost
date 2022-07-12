@@ -16,6 +16,7 @@ func main() {
 	{
 		publicGroup.GET("/", handlers.MainPage)
 		publicGroup.Static("/cv", "./web/cv")
+		publicGroup.Static("/cryptonomy", "./web/cryptonomy")
 	}
 
 	router.Run(getPort())
